@@ -6,9 +6,19 @@
   "repository": "https://github.com/savva200197531/simple-focus-start-backend.git",
   "author": "Savva",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "nodemon": "^2.0.7",
+    "morgan": "^1.10.0",
     "socket.io": "^3.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.7"
   }
 }
