@@ -1929,6 +1929,11 @@ setprototypeof@1.1.1:
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.1.1.tgz#7e95acb24aa92f5885e0abef5ba131330d4ae683"
   integrity sha512-JvdAWfbXeIGaZ9cILp38HntZSFSo3mWg6xGcJJsd+d4aRMOqauag1C63dJfDw7OaMYwEbHMOxEZ1lqVRYP2OAw==
 
+settings@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/settings/-/settings-0.1.1.tgz#efba37888b3ec895d38de3f12e6b2debf1486341"
+  integrity sha1-77o3iIs+yJXTjePxLmst6/FIY0E=
+
 shebang-command@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/shebang-command/-/shebang-command-2.0.0.tgz#ccd0af4f8835fbdc265b82461aaf0c36663f34ea"

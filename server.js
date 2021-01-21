@@ -3,9 +3,9 @@ const http = require('http');
 
 const app = express();
 const server = http.createServer(app);
-const socket = require('socket.io');
+const mainSocket = require('socket.io');
 
-const io = socket(server);
+const io = mainSocket(server);
 
 const users = {};
 let yourId = '';
@@ -16,6 +16,7 @@ io.on('connection', (socket) => {
   });
 
   socket.on('allUsers', (userId) => {
+    if (!userId) return;
     users[userId] = socket.id;
     console.log(users);
   });
