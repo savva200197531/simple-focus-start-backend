@@ -7,31 +7,37 @@ const mainSocket = require('socket.io');
 
 const io = mainSocket(server);
 
-const users = {};
-let yourId = '';
+const users = [];
+// let yourId = '';
 
 io.on('connection', (socket) => {
-  socket.on('yourID', (id) => {
-    yourId = id;
-  });
+  // socket.on('yourID', (id) => {
+  //   yourId = id;
+  // });
 
   socket.on('allUsers', (userId) => {
     if (!userId) return;
-    users[userId] = socket.id;
+    users[userId] = {
+      userId,
+      socketId: socket.id
+    };
     console.log(users);
   });
 
-  // мой id - ключ
-
-  // socket.on('disconnect', () => {
-  //   delete users[yourId];
-  // })
-
   socket.on('callUser', (data) => {
-    console.log(users);
-    const from = users[data.from];
-    const to = users[data.userToCall];
-    io.to(to).emit('hey', { signal: data.signalData, from });
+    if (users) {
+      const from = users[data.from];
+      const to = users[data.userToCall];
+      io.to(to.socketId)
+        .emit(
+          'hey',
+          {
+            signal: data.signalData,
+            from: from.socketId,
+            userId: from.userId
+          }
+        );
+    }
   });
 
   socket.on('acceptCall', (data) => {
